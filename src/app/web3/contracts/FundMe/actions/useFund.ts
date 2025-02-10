@@ -13,9 +13,9 @@ const useFund = () => {
     return new Contract(config.contracts.fundMeAddress, IFundMe, signer);
   }, [signer]);
 
-  return async () => {
+  return async (amount: string) => {
     try {
-      const tx = await contract?.fund({ value: ethers.parseEther("1") });
+      const tx = await contract?.fund({ value: ethers.parseEther(amount) });
 
       await tx.wait();
     } catch (error) {

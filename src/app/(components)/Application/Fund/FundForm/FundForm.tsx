@@ -1,15 +1,33 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useFund from "@/app/web3/contracts/FundMe/actions/useFund";
 import Button from "@/app/(components)/Basic/Button/Button";
 
 const FundForm = () => {
   const [amount, setAmount] = useState("");
 
+  const [isClient, setIsClient] = useState(false);
+
+  const fund = useFund();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Add loading component
+  if (!isClient) return <span>loading</span>;
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    await fund(amount);
+
+    setAmount("");
+  };
+
   return (
     <form
-      onSubmit={() => console.log(amount)}
+      onSubmit={handleSubmit}
       className='flex flex-col items-center gap-y-4'
     >
       <label htmlFor='amount'>Fund amount</label>

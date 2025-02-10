@@ -15,16 +15,14 @@ const Header = () => {
   };
 
   return (
-    <>
-      <div className='mt-10 flex items-end'>
-        <div className='ml-auto flex flex-col items-end gap-y-2'>
-          <Button onClick={async () => await connectHandler()} className='w-40'>
-            {signer ? "Disconnect" : "Connect"}
-          </Button>
-          {address ? <span className='text-lg'>{address}</span> : null}
-        </div>
+    <header className='mt-10 flex items-end'>
+      <div className='ml-auto flex flex-col items-end gap-y-2'>
+        <Button onClick={async () => await connectHandler()} className='w-40'>
+          {signer ? "Disconnect" : "Connect"}
+        </Button>
+        {address ? <span className='text-lg'>{address}</span> : null}
       </div>
-    </>
+    </header>
   );
 };
 
