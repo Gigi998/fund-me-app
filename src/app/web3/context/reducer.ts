@@ -9,6 +9,7 @@ const web3ContextReducer = (state: Web3ContextState, action: Action) => {
         address: action.payload.address,
         chainId: action.payload.chainId,
         signer: action.payload.signer,
+        web3Provider: action.payload.web3Provider,
       };
     case ActionType.DISCONNECTED:
       return {

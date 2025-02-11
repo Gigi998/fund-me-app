@@ -1,6 +1,8 @@
+import { BrowserProvider } from "ethers";
 import { JsonRpcSigner } from "ethers";
 
 export interface Web3ContextState {
+  web3Provider?: BrowserProvider | null;
   chainId?: number | null;
   signer?: JsonRpcSigner | null;
   address?: string | null;

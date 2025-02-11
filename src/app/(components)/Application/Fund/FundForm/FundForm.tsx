@@ -16,7 +16,7 @@ const FundForm = () => {
   }, []);
 
   // Add loading component
-  if (!isClient) return <span>loading</span>;
+  if (!isClient) return <span>loading...</span>;
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();

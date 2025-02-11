@@ -28,6 +28,7 @@ const Web3ContextProvider = ({ children }: PropsWithChildren) => {
         address,
         signer,
         chainId,
+        web3Provider: web3,
       },
     });
     return undefined;
